@@ -1,0 +1,433 @@
+/* ===========================================================
+   Harvey in Hell — site styles
+   Palette: black #0a0908, rust red #b3311e, dust gold #e8cd7a,
+            ember orange #c96a3a, bone #f2ede1
+   Type: 'Rye' (display, western/weathered) + 'Spectral' (serif body)
+   =========================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Rye&family=Spectral:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Special+Elite&display=swap');
+
+:root{
+  --black:      #0a0908;
+  --near-black: #17130f;
+  --rust:       #b3311e;
+  --rust-dark:  #7c2015;
+  --ember:      #c96a3a;
+  --gold:       #e8cd7a;
+  --bone:       #f2ede1;
+  --stone:      #4a4038;
+  --line:       rgba(242,237,225,0.18);
+
+  --display: 'Rye', serif;
+  --serif:   'Spectral', Georgia, serif;
+  --type:    'Special Elite', monospace; /* used sparingly, for typewriter backer names */
+
+  --maxw: 1200px;
+}
+
+*, *::before, *::after{ box-sizing: border-box; }
+html{ scroll-behavior: smooth; }
+
+body{
+  margin:0;
+  background: var(--black);
+  color: var(--bone);
+  font-family: var(--serif);
+  font-size: 17px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+img{ max-width:100%; display:block; }
+
+a{ color: inherit; }
+
+.wrap{
+  max-width: var(--maxw);
+  margin: 0 auto;
+  padding: 0 32px;
+}
+
+/* Respect reduced motion */
+@media (prefers-reduced-motion: reduce){
+  html{ scroll-behavior: auto; }
+  *{ animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+}
+
+/* Visible focus states */
+a:focus-visible, button:focus-visible{
+  outline: 2px solid var(--gold);
+  outline-offset: 3px;
+}
+
+/* ---------- Site header ---------- */
+.site-header{
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 50;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding: 18px 32px;
+  background: linear-gradient(to bottom, rgba(10,9,8,0.85), transparent);
+  pointer-events:none;
+}
+.site-header .brand-mark{
+  width: 40px; height:40px;
+  pointer-events:auto;
+  opacity: 0.9;
+}
+.site-header nav{ pointer-events:auto; }
+.site-header nav a{
+  font-family: var(--display);
+  font-size: 0.85rem;
+  letter-spacing: 0.04em;
+  color: var(--bone);
+  text-decoration: none;
+  margin-left: 22px;
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.15s ease, color 0.15s ease;
+}
+.site-header nav a:hover{ color: var(--gold); border-color: var(--gold); }
+
+/* ---------- Hero ---------- */
+.hero{
+  position: relative;
+  min-height: 100vh;
+  display:flex;
+  flex-direction: column;
+  align-items:center;
+  justify-content: center;
+  text-align:center;
+  padding: 140px 24px 80px;
+  background: var(--black);
+  overflow:hidden;
+}
+
+/* Full-bleed dirt-road background image, warped via an animated SVG
+   displacement filter for a slow, trippy heat-haze effect. */
+.hero-bg{
+  position:absolute;
+  inset: -4%; /* oversize so the warp never reveals an edge */
+  z-index: 0;
+  background: var(--black) center/cover no-repeat;
+  filter: url(#heatwarp);
+  will-change: filter;
+}
+.hero-bg img{
+  width:100%; height:100%; object-fit:cover;
+  opacity: 0.6;
+}
+
+.hero::before{
+  /* horizon glow + top-to-black falloff so text stays readable over the warp */
+  content:"";
+  position:absolute;
+  inset:0;
+  z-index: 1;
+  background:
+    linear-gradient(to top, rgba(179,49,30,0.4), transparent 55%),
+    linear-gradient(to bottom, rgba(10,9,8,0.75), rgba(10,9,8,0.35) 40%, rgba(10,9,8,0.6));
+  pointer-events:none;
+}
+
+.hero > *{ position:relative; z-index: 2; }
+
+.hero-cover{
+  width: min(520px, 82vw);
+  aspect-ratio: 1 / 1;
+  border: 1px solid rgba(232,205,122,0.25);
+  box-shadow: 0 30px 80px rgba(0,0,0,0.65);
+  overflow:hidden;
+  margin-bottom: 40px;
+  background: var(--near-black) center/cover no-repeat;
+}
+.hero-cover img{ width:100%; height:100%; object-fit:cover; }
+
+.hero h1{
+  font-family: var(--display);
+  font-weight: 400;
+  color: var(--gold);
+  font-size: clamp(2.6rem, 7vw, 4.6rem);
+  line-height: 1.05;
+  letter-spacing: 0.01em;
+  margin: 0 0 22px;
+  text-shadow: 0 2px 0 rgba(0,0,0,0.5);
+}
+
+.hero-tagline{
+  max-width: 640px;
+  font-size: 1.15rem;
+  font-style: italic;
+  color: rgba(242,237,225,0.85);
+  margin: 0 0 36px;
+}
+
+.btn{
+  display:inline-block;
+  font-family: var(--display);
+  font-size: 1rem;
+  letter-spacing: 0.02em;
+  color: var(--bone);
+  background: var(--rust);
+  border: 1px solid rgba(232,205,122,0.4);
+  padding: 16px 34px;
+  text-decoration:none;
+  border-radius: 3px;
+  transition: transform 0.15s ease, background 0.15s ease;
+}
+.btn:hover{ background: var(--rust-dark); transform: translateY(-2px); }
+
+/* ---------- Section shell ---------- */
+section{ position: relative; }
+
+.section-dark{
+  background: var(--near-black);
+  padding: 90px 0 100px;
+  border-top: 1px solid var(--line);
+}
+
+.section-red{
+  background: var(--rust);
+  color: var(--near-black);
+  padding: 90px 0 100px;
+}
+
+.section-red a{ color: var(--near-black); }
+
+h2.section-title{
+  font-family: var(--display);
+  font-weight:400;
+  font-size: clamp(1.8rem, 3.6vw, 2.6rem);
+  margin: 0 0 44px;
+  letter-spacing: 0.02em;
+}
+
+.section-dark h2.section-title{ color: var(--gold); }
+.section-red h2.section-title{ color: var(--black); }
+
+/* ---------- Trailer ---------- */
+.trailer-grid{
+  display:grid;
+  grid-template-columns: 1fr 1.3fr;
+  gap: 56px;
+  align-items:center;
+  margin-bottom: 64px;
+}
+
+.trailer-quote{
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 1.3rem;
+  line-height: 1.55;
+  color: var(--bone);
+  border-left: 3px solid var(--rust);
+  padding-left: 24px;
+}
+
+.video-frame{
+  position:relative;
+  aspect-ratio: 16/9;
+  background: #000;
+  border: 1px solid var(--line);
+  overflow:hidden;
+}
+.video-frame iframe{
+  position:absolute; inset:0;
+  width:100%; height:100%;
+  border:0;
+}
+.video-caption{
+  font-size: 0.85rem;
+  color: var(--stone);
+  margin-top: 10px;
+}
+
+/* Reviews — styled as a quote wall rather than screenshots, so it reads
+   like genuine editorial content instead of pasted-in images. */
+.reviews-grid{
+  display:grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1px;
+  background: var(--line);
+  border: 1px solid var(--line);
+}
+.review-card{
+  background: var(--near-black);
+  padding: 30px 32px;
+  position:relative;
+}
+.review-card::before{
+  content: "\201C";
+  font-family: var(--display);
+  font-size: 3.2rem;
+  color: var(--rust);
+  line-height: 1;
+  display:block;
+  margin-bottom: 4px;
+}
+.review-head{
+  display:flex;
+  justify-content:space-between;
+  align-items:baseline;
+  gap: 12px;
+  margin: 4px 0 8px;
+}
+.review-title{
+  font-family: var(--display);
+  font-size: 1.1rem;
+  color: var(--bone);
+  font-weight:400;
+}
+.review-meta{
+  font-size: 0.78rem;
+  color: var(--stone);
+  text-align:right;
+  white-space: nowrap;
+}
+.review-stars{ color: var(--gold); letter-spacing: 3px; margin-bottom: 12px; font-size: 0.9rem; }
+.review-body{ color: rgba(242,237,225,0.78); font-size: 0.98rem; font-style: italic; }
+
+/* ---------- Cast ---------- */
+.cast-grid{
+  display:grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 48px 44px;
+}
+.cast-card .cast-photo{
+  aspect-ratio: 1/1;
+  overflow:hidden;
+  background: rgba(0,0,0,0.15);
+  margin-bottom: 18px;
+}
+.cast-card .cast-photo img{ width:100%; height:100%; object-fit:cover; }
+.cast-card h3{
+  font-family: var(--display);
+  font-weight: 400;
+  font-size: 1.3rem;
+  margin: 0 0 10px;
+}
+.cast-card p{ font-size: 0.95rem; margin:0; }
+
+/* ---------- Episodes ---------- */
+.ep-grid{
+  display:grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 22px;
+}
+.ep-card{ display:block; text-decoration:none; }
+.ep-cover{
+  position:relative;
+  aspect-ratio: 1/1;
+  background: var(--black) center/cover no-repeat;
+  border: 1px solid rgba(10,9,8,0.35);
+  overflow:hidden;
+  display:flex;
+  flex-direction:column;
+  justify-content:space-between;
+  padding: 14px;
+}
+.ep-cover img{
+  position:absolute; inset:0;
+  width:100%; height:100%; object-fit:cover;
+  z-index:0;
+  opacity: 0.85;
+}
+.ep-cover::after{
+  /* subtle scanline/grain-ish vignette to match weathered posters */
+  content:"";
+  position:absolute; inset:0;
+  background: linear-gradient(to top, rgba(0,0,0,0.55), transparent 45%);
+  z-index:1;
+}
+.ep-show, .ep-title{
+  position:relative; z-index:2;
+  font-family: var(--display);
+  color: var(--gold);
+  text-shadow: 0 2px 3px rgba(0,0,0,0.8);
+}
+.ep-show{ font-size: 0.85rem; letter-spacing: 0.03em; }
+.ep-title{ font-size: 1.15rem; line-height:1.2; }
+
+/* ---------- Wall of the Damned ---------- */
+.wall{
+  position: relative;
+  padding: 70px 40px;
+  background:
+    linear-gradient(rgba(20,6,4,0.55), rgba(20,6,4,0.75)),
+    var(--near-black) center/cover no-repeat;
+  border: 1px solid var(--line);
+}
+.wall h2.section-title{
+  text-align:center;
+  color: var(--bone);
+  font-size: clamp(2rem, 5vw, 3rem);
+  margin-bottom: 50px;
+}
+.wall-names{
+  columns: 4;
+  column-gap: 40px;
+  font-family: var(--type);
+  font-size: 0.92rem;
+  color: rgba(242,237,225,0.88);
+}
+.wall-names p{ margin: 0 0 16px; break-inside: avoid; text-align:center; }
+
+/* ---------- Footer ---------- */
+footer{
+  background: var(--rust);
+  color: var(--near-black);
+  padding: 60px 0;
+}
+.footer-grid{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  flex-wrap: wrap;
+  gap: 28px;
+}
+.footer-brand{
+  display:flex;
+  align-items:center;
+  gap: 22px;
+}
+.footer-brand img{ width: 78px; height:78px; }
+.footer-brand h3{
+  font-family: var(--display);
+  font-weight:400;
+  font-size: 1.9rem;
+  margin:0;
+  color: var(--black);
+}
+.footer-contact{ text-align:right; }
+.footer-contact p{ margin:0 0 4px; font-family: var(--display); font-size:1.1rem; }
+.footer-contact a{ text-decoration:none; }
+.social-row{ display:flex; gap:10px; justify-content:flex-end; margin-top: 14px; }
+.social-row a{
+  width: 36px; height:36px;
+  display:flex; align-items:center; justify-content:center;
+  background: var(--near-black);
+  color: var(--bone);
+  border-radius: 4px;
+  text-decoration:none;
+  font-size: 0.9rem;
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 900px){
+  .trailer-grid{ grid-template-columns: 1fr; gap: 32px; }
+  .cast-grid{ grid-template-columns: repeat(2, 1fr); }
+  .ep-grid{ grid-template-columns: repeat(3, 1fr); }
+  .wall-names{ columns: 2; }
+  .reviews-grid{ grid-template-columns: 1fr; }
+}
+
+@media (max-width: 560px){
+  .wrap{ padding: 0 20px; }
+  .cast-grid{ grid-template-columns: 1fr; }
+  .ep-grid{ grid-template-columns: repeat(2, 1fr); }
+  .footer-grid{ flex-direction:column; align-items:flex-start; text-align:left; }
+  .footer-contact{ text-align:left; }
+  .social-row{ justify-content:flex-start; }
+  .wall-names{ columns: 1; }
+}

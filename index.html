@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Harvey in Hell — A Horror-Mystery Fiction Podcast</title>
+<meta name="description" content="Harvey in Hell: a 1982 horror-mystery fiction podcast from the creator of The Milkman of St. Gaff's.">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- Hidden SVG filter: animated turbulence + displacement map creates a
+     slow, drifting heat-haze / trip warp over the hero background image.
+     Swap frequency/scale values below to make the warp stronger or calmer. -->
+<svg width="0" height="0" style="position:absolute">
+  <filter id="heatwarp" x="-20%" y="-20%" width="140%" height="140%">
+    <feTurbulence type="fractalNoise" numOctaves="2" seed="7" result="noise">
+      <animate attributeName="baseFrequency"
+               values="0.008 0.015;0.011 0.02;0.008 0.015"
+               dur="22s" repeatCount="indefinite"/>
+    </feTurbulence>
+    <feDisplacementMap in="SourceGraphic" in2="noise" scale="26" xChannelSelector="R" yChannelSelector="G"/>
+  </filter>
+</svg>
+
+<header class="site-header">
+  <img class="brand-mark" src="assets/hmi-logo.png" alt="Howie Milkman Industries logo">
+  <nav>
+    <a href="#trailer">Trailer</a>
+    <a href="#cast">Cast</a>
+    <a href="#episodes">Episodes</a>
+    <a href="#wall">Wall of the Damned</a>
+  </nav>
+</header>
+
+<!-- ============ HERO ============ -->
+<section class="hero">
+  <div class="hero-bg">
+    <img src="assets/hero-road.jpg" alt="" role="presentation">
+  </div>
+
+  <div class="hero-cover">
+    <img src="assets/cover-harvey-in-hell.jpg" alt="Harvey in Hell cover art: title over a desert road lined with telephone poles under a burning red sky">
+  </div>
+
+  <h1>Harvey in Hell</h1>
+  <p class="hero-tagline">A 1982 horror-mystery fiction podcast from the creator of The Milkman of St. Gaff's.</p>
+  <a class="btn" href="https://www.kickstarter.com/" target="_blank" rel="noopener">Back Season Two on Kickstarter</a>
+</section>
+
+<!-- ============ TRAILER ============ -->
+<section id="trailer" class="section-dark">
+  <div class="wrap">
+    <h2 class="section-title">Trailer</h2>
+
+    <div class="trailer-grid">
+      <p class="trailer-quote">
+        It's 1982. FBI profiler John Harvey Coots has been sent to Sunnyside, Nevada
+        to investigate the disappearance of three children — cases that may be tied
+        to a satanic cult. But Harvey soon discovers much more than cults. A grotesque
+        lake of fire has erupted in the desert, its fumes blotting out the sun and
+        cloaking Sunnyside in an otherworldly penumbra&hellip;
+      </p>
+
+      <div>
+        <div class="video-frame">
+          <!--
+            Replace YOUTUBE_VIDEO_ID below with your real trailer's ID.
+            e.g. https://www.youtube.com/watch?v=dQw4w9WgXcQ -> ID is dQw4w9WgXcQ
+          -->
+          <iframe
+            src="https://www.youtube-nocookie.com/embed/YOUTUBE_VIDEO_ID"
+            title="Harvey in Hell — Official Trailer"
+            loading="lazy"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen>
+          </iframe>
+        </div>
+        <p class="video-caption">Official trailer — 2:09</p>
+      </div>
+    </div>
+
+    <div class="reviews-grid">
+      <article class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <div class="review-head">
+          <h3 class="review-title">He had a face like a rusty ax.</h3>
+          <span class="review-meta">Tivadar3000 · Jan 21</span>
+        </div>
+        <p class="review-body">I loved Milkman Of St Gaff's, so I was always going to dive into this. Another beautiful and amusing descent into madness. I'm jealous of Chris' writing yet again. Wonderful.</p>
+      </article>
+
+      <article class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <div class="review-head">
+          <h3 class="review-title">Perfect podcasting</h3>
+          <span class="review-meta">Adrienne_777 · Jan 28</span>
+        </div>
+        <p class="review-body">This is everything I could have hoped for from a fiction podcast! Amazing storytelling, unreliable narrator, surrealism and dark undertones, absolutely fantastic!</p>
+      </article>
+
+      <article class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <div class="review-head">
+          <h3 class="review-title">Looks like another great one</h3>
+          <span class="review-meta">Happy&hellip;</span>
+        </div>
+        <p class="review-body">After one episode I'm happy to follow this wherever it goes. Chris McClure is great for slightly unreliable narrators — not narrators that lie to you, but that aren't blessed with self-knowledge. I want to call it Lynchian, but I'll go with dream-like. Check it out.</p>
+      </article>
+
+      <article class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <div class="review-head">
+          <h3 class="review-title">Some people just can't see the truth&hellip;</h3>
+          <span class="review-meta">Happy&hellip; · 6d ago</span>
+        </div>
+        <p class="review-body">Really enjoying this so far. As others here have said, the narration is ambiguous. You're constantly wondering what is true and what isn't, which I love. Also, beautiful, immersive sound design and great voice acting.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CAST ============ -->
+<section id="cast" class="section-red">
+  <div class="wrap">
+    <h2 class="section-title">Cast</h2>
+    <div class="cast-grid">
+
+      <div class="cast-card">
+        <div class="cast-photo"><img src="assets/cast-chris-mcclure.jpg" alt="Chris McClure"></div>
+        <h3>Chris McClure</h3>
+        <p>Chris plays Harvey. He also writes and produces Harvey in Hell.</p>
+      </div>
+
+      <div class="cast-card">
+        <div class="cast-photo"><img src="assets/cast-romy-evans.jpg" alt="Romy Evans"></div>
+        <h3>Romy Evans</h3>
+        <p>Romy Evans plays Katie May, Mrs. Binter and others. Romy is known for The Antiquarium of Sinister Happenings (2023), People Magazine Investigates (2022) and Essence.</p>
+      </div>
+
+      <div class="cast-card">
+        <div class="cast-photo"><img src="assets/cast-sabrina-knappett.jpg" alt="Sabrina Knappett"></div>
+        <h3>Sabrina Knappett</h3>
+        <p>Sabrina Knappett plays Sarah Sue, Anna, Coral and Libra. Sabrina is a Toronto-based actress, writer, and producer whose work spans film, television, and web series, with credits including Soul Heist, Autumn Hill, and Discovery+'s Who the Bleep Did I Marry? She is a six-time Best Actress award winner, known for her versatility on screen and strong character work.</p>
+      </div>
+
+      <div class="cast-card">
+        <div class="cast-photo"><img src="assets/cast-michael-masurkevitch.jpg" alt="Michael Masurkevitch"></div>
+        <h3>Michael Masurkevitch</h3>
+        <p>Mike plays Clay, Petey and others. He is an actor and screenwriter known for Snow Blind, Pirate Mike, and Good Cop Burha Cop. He also co-produces independent films and recently released his first single, Decompress.</p>
+      </div>
+
+      <div class="cast-card">
+        <div class="cast-photo"><img src="assets/cast-allen-enlow.jpg" alt="Allen Enlow"></div>
+        <h3>Allen Enlow</h3>
+        <p>Allen plays McCree, Zachary Zane and Verve. Allen is an actor, comedian, and singer — best known for playing Dr. Harry Winer alongside James Gandolfini in The Sopranos (Season 5), and recent appearances in Mr. Robot and The Night Of.</p>
+      </div>
+
+      <div class="cast-card">
+        <div class="cast-photo"><img src="assets/cast-pete-flatiche.jpg" alt="Pete Flatiche"></div>
+        <h3>Pete Flatiche</h3>
+        <p>Pete Flatiche plays Sheriff Stillwater, JP Straw and others. He is a veteran performer with a wide range of stage and screen credits, now bringing private investigator extraordinaire JP Straw to life with equal parts menace and humor.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============ EPISODES ============ -->
+<section id="episodes" class="section-red" style="padding-top:0;">
+  <div class="wrap">
+    <div class="ep-grid">
+
+      <a class="ep-card" href="#"><div class="ep-cover" style="background-image:url('assets/ep-starlight-pond.jpg')">
+        <span class="ep-show">Harvey in Hell</span><span class="ep-title">Starlight Pond</span></div></a>
+
+      <a class="ep-card" href="#"><div class="ep-cover" style="background-image:url('assets/ep-welcome-to-sunnyside.jpg')">
+        <span class="ep-show">Harvey in Hell</span><span class="ep-title">Welcome to Sunnyside</span></div></a>
+
+      <a class="ep-card" href="#"><div class="ep-cover" style="background-image:url('assets/ep-santa-isnt-real.jpg')">
+        <span class="ep-show">Harvey in Hell</span><span class="ep-title">Santa Isn't Real</span></div></a>
+
+      <a class="ep-card" href="#"><div class="ep-cover" style="background-image:url('assets/ep-verve.jpg')">
+        <span class="ep-show">Harvey in Hell</span><span class="ep-title">Verve</span></div></a>
+
+      <a class="ep-card" href="#"><div class="ep-cover" style="background-image:url('assets/ep-empty-hollow.jpg')">
+        <span class="ep-show">Harvey in Hell</span><span class="ep-title">Empty Hollow</span></div></a>
+
+      <a class="ep-card" href="#"><div class="ep-cover" style="background-image:url('assets/ep-the-news.jpg')">
+        <span class="ep-show">Harvey in Hell</span><span class="ep-title">The News</span></div></a>
+
+      <a class="ep-card" href="#"><div class="ep-cover" style="background-image:url('assets/ep-toys.jpg')">
+        <span class="ep-show">Harvey in Hell</span><span class="ep-title">Toys</span></div></a>
+
+      <a class="ep-card" href="#"><div class="ep-cover" style="background-image:url('assets/ep-the-phone.jpg')">
+        <span class="ep-show">Harvey in Hell</span><span class="ep-title">The Phone</span></div></a>
+
+      <a class="ep-card" href="#"><div class="ep-cover" style="background-image:url('assets/ep-dice.jpg')">
+        <span class="ep-show">Harvey in Hell</span><span class="ep-title">Dice</span></div></a>
+
+      <a class="ep-card" href="#"><div class="ep-cover" style="background-image:url('assets/ep-ties-that-bind-1.jpg')">
+        <span class="ep-show">Harvey in Hell</span><span class="ep-title">The Ties That Bind — Part One</span></div></a>
+
+      <a class="ep-card" href="#"><div class="ep-cover" style="background-image:url('assets/ep-ties-that-bind-2.jpg')">
+        <span class="ep-show">Harvey in Hell</span><span class="ep-title">The Ties That Bind — Part Two</span></div></a>
+
+      <a class="ep-card" href="#"><div class="ep-cover" style="background-image:url('assets/ep-hellbound-at-midnight.jpg')">
+        <span class="ep-show">Harvey in Hell</span><span class="ep-title">Hellbound at Midnight</span></div></a>
+
+      <a class="ep-card" href="#"><div class="ep-cover" style="background-image:url('assets/ep-jaywalking.jpg')">
+        <span class="ep-show">Harvey in Hell</span><span class="ep-title">Jaywalking Is Illegal</span></div></a>
+
+      <a class="ep-card" href="#"><div class="ep-cover" style="background-image:url('assets/ep-shadow-of-the-strawman.jpg')">
+        <span class="ep-show">Harvey in Hell</span><span class="ep-title">In the Shadow of the Strawman</span></div></a>
+
+      <a class="ep-card" href="#"><div class="ep-cover" style="background-image:url('assets/ep-donkey-song.jpg')">
+        <span class="ep-show">Harvey in Hell</span><span class="ep-title">Donkey Song</span></div></a>
+
+      <a class="ep-card" href="#"><div class="ep-cover" style="background-image:url('assets/ep-rain.jpg')">
+        <span class="ep-show">Harvey in Hell</span><span class="ep-title">Rain</span></div></a>
+
+      <a class="ep-card" href="#"><div class="ep-cover" style="background-image:url('assets/ep-what-its-all-for.jpg')">
+        <span class="ep-show">Harvey in Hell</span><span class="ep-title">What It's All For</span></div></a>
+
+      <a class="ep-card" href="#"><div class="ep-cover" style="background-image:url('assets/ep-talking-about-harvey-bonus.jpg')">
+        <span class="ep-show">Harvey in Hell</span><span class="ep-title">Talking About Harvey: Bonus</span></div></a>
+
+      <a class="ep-card" href="#"><div class="ep-cover" style="background-image:url('assets/ep-academy-tapes-kristy-kottis.jpg')">
+        <span class="ep-show">The Academy Tapes</span><span class="ep-title">Kristy Kottis</span></div></a>
+
+      <a class="ep-card" href="#"><div class="ep-cover" style="background-image:url('assets/ep-academy-tapes-gregg-mccrary.jpg')">
+        <span class="ep-show">The Academy Tapes</span><span class="ep-title">Gregg McCrary</span></div></a>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============ WALL OF THE DAMNED ============ -->
+<section id="wall" class="section-red">
+  <div class="wrap">
+    <div class="wall" style="background-image:url('assets/wall-of-the-damned-bg.jpg')">
+      <h2 class="section-title">Wall of the Damned</h2>
+      <div class="wall-names">
+        <!--
+          Backer list — one <p> per name. Edit freely; the CSS lays these
+          out in responsive columns automatically, so order doesn't matter.
+        -->
+        <p>Amy Grace</p><p>Chris Main</p><p>AJ Fidalgo</p><p>Scott</p><p>Laurie</p>
+        <p>James Wilson</p><p>J</p><p>Lex Mitchell</p><p>Sydney Umana</p><p>Yilmaz Dinc</p>
+        <p>Tatsiana</p><p>Laura</p><p>Tony</p><p>twigletsaregreattoeat</p><p>Denise Stead</p>
+        <p>AmyW</p><p>Tom Masciovecchio</p><p>Pamela Mendes</p><p>Rory Schacter</p><p>Tristan Trutna</p>
+        <p>Susan Walter</p><p>Corrin Flanders</p><p>Han Rehbach</p><p>Little Fairchild</p><p>T Chiu</p>
+        <p>Joel Schwab</p><p>Cee Gordon</p><p>Hillary Z</p><p>Alberto Alini</p><p>Marley</p>
+        <p>Darcy</p><p>Eric A Stormfield</p><p>Timothy Estabrooks</p><p>Luke</p><p>Elena Vanin</p>
+        <p>Alex Shimota</p><p>Elvia</p><p>P Kingdon</p><p>Tryggvi Kristjánsson</p><p>Ben Milne</p>
+        <p>Stevie Connelly</p><p>Ashley</p><p>Julian</p><p>Brian Dooley</p><p>Anthony</p>
+        <p>Paola Vanin</p><p>Lauren Shippen (Atypical Artists)</p><p>jeff cassista</p><p>Garon Clements</p><p>crockodile</p>
+        <p>Luke Williams</p><p>Georg</p><p>Rachel McDonnough</p><p>Kerry Mark Bouchard</p><p>philip geany</p>
+        <p>Mi'Kail Hoard</p><p>Andrew</p><p>Kim Seonwoo</p><p>Lauren</p><p>Travis Roy</p>
+        <p>Michael Brown</p><p>Shelley</p><p>Ian Evans</p><p>Hannah</p><p>Merit Mitchell-Downing</p>
+        <p>Kyle</p><p>Rebecca Pearson</p><p>Josh Burgess</p><p>Claudio Alini</p><p>Viviana Vanin</p>
+        <p>Andrew Eisenberg</p><p>Emma Schwab-Pflug</p><p>W. Keith Tims</p><p>JF</p><p>Shimmy972</p>
+        <p>Simon Jeffress</p><p>Rob Fletcher</p><p>kristsune</p><p>Jon Stout</p><p>Mikhail Plungis</p>
+        <p>Erica Wallin</p><p>Rachel Reina</p><p>Soren</p><p>dustindejonge</p><p>Luis</p>
+        <p>Peter</p><p>Kat Brooks</p><p>Kevin McDonald</p><p>Kim</p><p>Jeremy Impson</p>
+        <p>Jason</p><p>mark vujovic</p><p>Meghan Holliday</p><p>Tanya</p><p>Jordan</p>
+        <p>Aidan</p><p>Leigh MacInnis</p><p>Pavlos</p><p>Brad</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer>
+  <div class="wrap footer-grid">
+    <div class="footer-brand">
+      <img src="assets/hmi-logo.png" alt="Howie Milkman Industries logo">
+      <h3>Harvey in Hell</h3>
+    </div>
+    <div class="footer-contact">
+      <p>Contact:</p>
+      <a href="mailto:chris@howiemilkman.com">chris@howiemilkman.com</a>
+      <div class="social-row">
+        <a href="#" aria-label="Facebook">f</a>
+        <a href="#" aria-label="Instagram">ig</a>
+        <a href="#" aria-label="TikTok">tt</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
