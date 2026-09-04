@@ -331,14 +331,6 @@ h2.section-title{
   position:absolute; inset:0;
   width:100%; height:100%; object-fit:cover;
   z-index:0;
-  opacity: 0.85;
-}
-.ep-cover::after{
-  /* subtle scanline/grain-ish vignette to match weathered posters */
-  content:"";
-  position:absolute; inset:0;
-  background: linear-gradient(to top, rgba(0,0,0,0.55), transparent 45%);
-  z-index:1;
 }
 .ep-show, .ep-title{
   position:relative; z-index:2;
@@ -348,6 +340,18 @@ h2.section-title{
 }
 .ep-show{ font-size: 0.85rem; letter-spacing: 0.03em; }
 .ep-title{ font-size: 1.15rem; line-height:1.2; }
+
+/* Visually hidden but still readable by screen readers — used on episode
+   cards, since the cover art already shows the title baked in visually. */
+.sr-only{
+  position:absolute;
+  width:1px; height:1px;
+  padding:0; margin:-1px;
+  overflow:hidden;
+  clip:rect(0,0,0,0);
+  white-space:nowrap;
+  border:0;
+}
 
 /* ---------- Wall of the Damned ---------- */
 .wall{
