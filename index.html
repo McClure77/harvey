@@ -10,30 +10,55 @@
 <!-- ============ FIXES & SQUARESPACE MATCHING ============
      These rules override style.css, so style.css doesn't need editing. -->
 <style>
-  /* Typewriter font (file must be uploaded to the assets folder) */
+  /* Typer Pro Mono (the file must be in the assets folder) */
   @font-face{
     font-family: 'Typer Pro Mono';
     src: url('assets/TyperProMono-Heavy.otf') format('opentype');
     font-weight: 400;
     font-display: swap;
   }
-  :root{ --type: 'Typer Pro Mono', 'Special Elite', monospace; }
+  /* Use Typer Pro Mono for all headings, nav, names and titles */
+  :root{
+    --display: 'Typer Pro Mono', 'Courier New', monospace;
+    --type:    'Typer Pro Mono', 'Courier New', monospace;
+  }
+
+  .site-header nav a{ font-size: 1rem; letter-spacing: 0; }
+
+  /* ---------- Hero: match Squarespace ---------- */
+  .hero{ padding: 90px 24px 50px; }
 
   /* Keep the desert background BEHIND the cover, full-screen */
   .hero > .hero-bg{ position: absolute; z-index: 0; }
 
-  /* Tagline: large, bold, upright white serif like the Squarespace version */
-  .hero-tagline{
-    max-width: 900px;
-    font-style: normal;
-    font-weight: 600;
-    font-size: clamp(1.3rem, 2.6vw, 2rem);
-    line-height: 1.3;
-    color: var(--bone);
-    margin: 0 0 32px;
-    text-shadow: 0 2px 8px rgba(0,0,0,0.6);
+  /* Darker background image */
+  .hero-bg img{ opacity: 0.55; }
+  .hero::before{
+    background:
+      radial-gradient(ellipse at center, rgba(10,4,2,0) 0%, rgba(10,4,2,0.55) 80%),
+      linear-gradient(to top, rgba(90,30,10,0.45), transparent 50%),
+      linear-gradient(to bottom, rgba(10,4,2,0.85), rgba(10,4,2,0.3) 45%, rgba(10,4,2,0.45));
   }
-  .hero-cover{ margin-bottom: 24px; }
+
+  /* Bigger cover art */
+  .hero-cover{
+    width: min(60vh, 88vw);
+    margin-bottom: 28px;
+    border: none;
+  }
+
+  /* Tagline */
+  .hero-tagline{
+    max-width: 1200px;
+    font-family: var(--display);
+    font-style: normal;
+    font-weight: 400;
+    font-size: clamp(1rem, 1.7vw, 1.4rem);
+    line-height: 1.35;
+    color: var(--bone);
+    margin: 0 0 28px;
+    text-shadow: 0 2px 8px rgba(0,0,0,0.7);
+  }
 
   /* Button: clean bold sans-serif on red, like Squarespace */
   .btn{
@@ -84,7 +109,7 @@
   </div>
 
   <p class="hero-tagline">A 1982 horror-mystery fiction podcast from the creator of The Milkman of St. Gaff's.</p>
-  <a class="btn" href="https://www.kickstarter.com/" target="_blank" rel="noopener">Back Season Two on Kickstarter</a>
+  <a class="btn" href="https://www.patreon.com/c/howiemilkman" target="_blank" rel="noopener">Support Harvey in Hell on Patreon</a>
 </section>
 
 <!-- ============ TRAILER ============ -->
@@ -289,47 +314,3 @@
         -->
         <p>Amy Grace</p><p>Chris Main</p><p>AJ Fidalgo</p><p>Scott</p><p>Laurie</p>
         <p>James Wilson</p><p>J</p><p>Lex Mitchell</p><p>Sydney Umana</p><p>Yilmaz Dinc</p>
-        <p>Tatsiana</p><p>Laura</p><p>Tony</p><p>twigletsaregreattoeat</p><p>Denise Stead</p>
-        <p>AmyW</p><p>Tom Masciovecchio</p><p>Pamela Mendes</p><p>Rory Schacter</p><p>Tristan Trutna</p>
-        <p>Susan Walter</p><p>Corrin Flanders</p><p>Han Rehbach</p><p>Little Fairchild</p><p>T Chiu</p>
-        <p>Joel Schwab</p><p>Cee Gordon</p><p>Hillary Z</p><p>Alberto Alini</p><p>Marley</p>
-        <p>Darcy</p><p>Eric A Stormfield</p><p>Timothy Estabrooks</p><p>Luke</p><p>Elena Vanin</p>
-        <p>Alex Shimota</p><p>Elvia</p><p>P Kingdon</p><p>Tryggvi Kristjánsson</p><p>Ben Milne</p>
-        <p>Stevie Connelly</p><p>Ashley</p><p>Julian</p><p>Brian Dooley</p><p>Anthony</p>
-        <p>Paola Vanin</p><p>Lauren Shippen (Atypical Artists)</p><p>jeff cassista</p><p>Garon Clements</p><p>crockodile</p>
-        <p>Luke Williams</p><p>Georg</p><p>Rachel McDonnough</p><p>Kerry Mark Bouchard</p><p>philip geany</p>
-        <p>Mi'Kail Hoard</p><p>Andrew</p><p>Kim Seonwoo</p><p>Lauren</p><p>Travis Roy</p>
-        <p>Michael Brown</p><p>Shelley</p><p>Ian Evans</p><p>Hannah</p><p>Merit Mitchell-Downing</p>
-        <p>Kyle</p><p>Rebecca Pearson</p><p>Josh Burgess</p><p>Claudio Alini</p><p>Viviana Vanin</p>
-        <p>Andrew Eisenberg</p><p>Emma Schwab-Pflug</p><p>W. Keith Tims</p><p>JF</p><p>Shimmy972</p>
-        <p>Simon Jeffress</p><p>Rob Fletcher</p><p>kristsune</p><p>Jon Stout</p><p>Mikhail Plungis</p>
-        <p>Erica Wallin</p><p>Rachel Reina</p><p>Soren</p><p>dustindejonge</p><p>Luis</p>
-        <p>Peter</p><p>Kat Brooks</p><p>Kevin McDonald</p><p>Kim</p><p>Jeremy Impson</p>
-        <p>Jason</p><p>mark vujovic</p><p>Meghan Holliday</p><p>Tanya</p><p>Jordan</p>
-        <p>Aidan</p><p>Leigh MacInnis</p><p>Pavlos</p><p>Brad</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ============ FOOTER ============ -->
-<footer>
-  <div class="wrap footer-grid">
-    <div class="footer-brand">
-      <img src="assets/hmi-logo.png" alt="Howie Milkman Industries logo">
-      <h3>Harvey in Hell</h3>
-    </div>
-    <div class="footer-contact">
-      <p>Contact:</p>
-      <a href="mailto:chris@howiemilkman.com">chris@howiemilkman.com</a>
-      <div class="social-row">
-        <a href="#" aria-label="Facebook">f</a>
-        <a href="#" aria-label="Instagram">ig</a>
-        <a href="#" aria-label="TikTok">tt</a>
-      </div>
-    </div>
-  </div>
-</footer>
-
-</body>
-</html>
