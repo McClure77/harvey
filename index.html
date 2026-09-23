@@ -6,6 +6,46 @@
 <title>Harvey in Hell — A Horror-Mystery Fiction Podcast</title>
 <meta name="description" content="Harvey in Hell: a 1982 horror-mystery fiction podcast from the creator of The Milkman of St. Gaff's.">
 <link rel="stylesheet" href="style.css">
+
+<!-- ============ FIXES & SQUARESPACE MATCHING ============
+     These rules override style.css, so style.css doesn't need editing. -->
+<style>
+  /* Typewriter font (file must be uploaded to the assets folder) */
+  @font-face{
+    font-family: 'Typer Pro Mono';
+    src: url('assets/TyperProMono-Heavy.otf') format('opentype');
+    font-weight: 400;
+    font-display: swap;
+  }
+  :root{ --type: 'Typer Pro Mono', 'Special Elite', monospace; }
+
+  /* Keep the desert background BEHIND the cover, full-screen */
+  .hero > .hero-bg{ position: absolute; z-index: 0; }
+
+  /* Tagline: large, bold, upright white serif like the Squarespace version */
+  .hero-tagline{
+    max-width: 900px;
+    font-style: normal;
+    font-weight: 600;
+    font-size: clamp(1.3rem, 2.6vw, 2rem);
+    line-height: 1.3;
+    color: var(--bone);
+    margin: 0 0 32px;
+    text-shadow: 0 2px 8px rgba(0,0,0,0.6);
+  }
+  .hero-cover{ margin-bottom: 24px; }
+
+  /* Button: clean bold sans-serif on red, like Squarespace */
+  .btn{
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-weight: 700;
+    font-size: 1.05rem;
+    letter-spacing: 0;
+    border: none;
+    border-radius: 6px;
+    padding: 18px 40px;
+  }
+</style>
 </head>
 <body>
 
@@ -43,7 +83,6 @@
     <img src="assets/HIH%20MAIN%20small.jpg" alt="Harvey in Hell cover art: title over a desert road lined with telephone poles under a burning red sky">
   </div>
 
-  <h1>Harvey in Hell</h1>
   <p class="hero-tagline">A 1982 horror-mystery fiction podcast from the creator of The Milkman of St. Gaff's.</p>
   <a class="btn" href="https://www.kickstarter.com/" target="_blank" rel="noopener">Back Season Two on Kickstarter</a>
 </section>
